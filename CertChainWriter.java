@@ -42,15 +42,17 @@ public class CertChainWriter {
     SSLSession session = socket.getSession();
     java.security.cert.Certificate[] servercerts = session.getPeerCertificates();
 
+    Encoder encoder = Base64.getEncoder();
+
     for (int i = 1; i < servercerts.length; i++) {
-      Encoder encoder = Base64.getEncoder();
+      String cert = encoder.encodeToString(servercerts[i].getEncoded());
       System.out.println(beginCert);
-      System.out.println(encoder.encodeToString(servercerts[i].getEncoded()));
+      System.out.println(cert);
       System.out.println(endCert);
       BufferedWriter writer = new BufferedWriter(new FileWriter(String.format(certFilenameFormat, i)));
       writer.write(beginCert);
       writer.newLine();
-      writer.write(encoder.encodeToString(servercerts[i].getEncoded()));
+      writer.write(cert);
       writer.newLine();
       writer.write(endCert);
       writer.newLine();
