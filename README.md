@@ -11,3 +11,13 @@ OpenJDK 64-Bit Server VM Zulu11.29+11-CA (build 11.0.2+9-LTS, mixed mode)
 PS C:\Users\Chris\AppData\Local\Temp\srcclr\1528\srcclr-3.4.17\jre\bin> .\java -jar <path-to>\CertChainWriter.jar api.sourceclear.io 443
 -----BEGIN CERTIFICATE-----
 MIIESTCCAzGgAwIBAgITBn+UV4WH6Kx33rJTMlu8mYtW...
+```
+
+You can then import the certificate files into the keystore (default password is `changeit`):
+
+```pwsh
+PS C:\Users\Chris\AppData\Local\Temp\srcclr\1528\srcclr-3.4.17\jre\bin> .\keytool.exe -import -alias cert1 -keystore ..\lib\security\cacerts -file cert1.pem
+Warning: use -cacerts option to access cacerts keystore
+Enter keystore password:
+Certificate was added to keystore
+```
