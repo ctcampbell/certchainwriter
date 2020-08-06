@@ -16,7 +16,7 @@ MIIESTCCAzGgAwIBAgITBn+UV4WH6Kx33rJTMlu8mYtW...
 Proxy support is also provided:
 
 ```pwsh
-PS C:\Users\Chris\AppData\Local\Temp\srcclr\1528\srcclr-3.4.17\jre\bin> .\java -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=8888 -jar <path-to>\CertChainWriter.jar api.sourceclear.io 443
+PS C:\...\srcclr-3.4.17\jre\bin> .\java -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=8888 -jar <path-to>\CertChainWriter.jar api.sourceclear.io 443
 ```
 
 You can then import the certificate files into the keystore (default password is `changeit`):
